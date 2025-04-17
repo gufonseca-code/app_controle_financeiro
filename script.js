@@ -4,6 +4,8 @@ const amountInput = document.getElementById("amount");
 const categoryInput = document.getElementById("category");
 const transactionList = document.getElementById("transaction-list");
 const balanceDisplay = document.getElementById("balance");
+const incomeDisplay = document.getElementById("income");
+const expensesDisplay = document.getElementById("expenses");
 
 let transactions = [];
 
@@ -44,6 +46,11 @@ function renderTransactions() {
 }
 
 function updateBalance() {
-    const total = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
+    const incomes = transactions.filter(t => t.amount > 0).reduce((sum, t) => sum + t.amount, 0);
+    const expenses = transactions.filter(t => t.amount < 0).reduce((sum, t) => sum + t.amount, 0);
+    const total = incomes + expenses;
+
+    incomeDisplay.textContent = `R$ ${incomes.toFixed(2)}`;
+    expensesDisplay.textContent = `R$ ${Math.abs(expenses).toFixed(2)}`;
     balanceDisplay.textContent = `R$ ${total.toFixed(2)}`;
 }

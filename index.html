@@ -21,7 +21,20 @@
                 </select>
                 <button type="submit">Adicionar</button>
             </form>
-            <h2>Saldo: <span id="balance">R$ 0,00</span></h2>
+            <div class="summary">
+                <div class="summary-item receitas">
+                    <h3>Receitas</h3>
+                    <p id="income">R$ 0,00</p>
+                </div>
+                <div class="summary-item despesas">
+                    <h3>Despesas</h3>
+                    <p id="expenses">R$ 0,00</p>
+                </div>
+                <div class="summary-item saldo">
+                    <h3>Saldo</h3>
+                    <p id="balance">R$ 0,00</p>
+                </div>
+            </div>
             <h2>Transações</h2>
             <ul id="transaction-list"></ul>
         </div>
