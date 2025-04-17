@@ -36,7 +36,7 @@ function renderTransactions() {
   transactions.forEach((transaction) => {
     const li = document.createElement("li");
     li.textContent = `${transaction.description} - R$ ${transaction.amount.toFixed(2)} [${transaction.category}]`;
-    li.style.borderLeftColor = transaction.amount < 0 ? "#f44336" : "#4caf50"; // Vermelho para gasto
+    li.style.borderLeftColor = transaction.amount < 0 ? "#f44336" : "#4caf50"; 
     transactionList.appendChild(li);
   });
 }
