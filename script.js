@@ -3,6 +3,7 @@ const descriptionInput = document.getElementById("description");
 const amountInput = document.getElementById("amount");
 const categoryInput = document.getElementById("category");
 const transactionList = document.getElementById("transaction-list");
+const balanceDisplay = document.getElementById("balance");
 
 let transactions = [];
 
@@ -39,4 +40,10 @@ function renderTransactions() {
     li.style.borderLeftColor = transaction.amount < 0 ? "#f44336" : "#4caf50"; 
     transactionList.appendChild(li);
   });
+  updateBalance();
+}
+
+function updateBalance() {
+    const total = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
+    balanceDisplay.textContent = `R$ ${total.toFixed(2)}`;
 }
